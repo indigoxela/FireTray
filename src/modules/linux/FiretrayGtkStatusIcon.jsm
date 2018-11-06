@@ -234,16 +234,16 @@ firetray.Handler.setIconText = function(text, color) {
     //let w = gdk.gdk_pixbuf_get_width(specialIcon);
     //let h = gdk.gdk_pixbuf_get_height(specialIcon);
     // workaround: loading from packed xpi fails, draw light gray bordered square with cairo
-    let w = 32;
-    let h = 32;
-    let stroke = 2;
+    let w = 24;
+    let h = 24;
+    let stroke = 1.5;
     var mysurface = cairo.cairo_image_surface_create(cairo.CAIRO_FORMAT_ARGB32, w, h);
     var mycr = cairo.cairo_create(mysurface);
     cairo.cairo_rectangle(mycr, stroke, stroke, w - (stroke * 2), h - (stroke * 2));
     cairo.cairo_set_source_rgb(mycr, 0.85, 0.85, 0.85);
     cairo.cairo_fill_preserve(mycr);
     cairo.cairo_set_line_width(mycr, stroke);
-    cairo.cairo_set_source_rgb(mycr, 0.4, 0.4, 0.4);
+    cairo.cairo_set_source_rgb(mycr, 0.35, 0.35, 0.35);
     cairo.cairo_stroke(mycr);
     let dest = gdk.gdk_pixbuf_get_from_surface(mysurface, 0, 0, w, h);
     // prepare colors/alpha
